@@ -1,3 +1,10 @@
+// Data setup
+let words;
+fetch('http://localhost:3001/api/v1/words').then( (response) => response.json() ).then( (data) => {
+  words = data;
+  setGame();
+  })
+
 // Global Variables
 var winningWord = '';
 var currentRow = 1;
@@ -21,7 +28,7 @@ var gameOverGuessCount = document.querySelector('#game-over-guesses-count');
 var gameOverGuessGrammar = document.querySelector('#game-over-guesses-plural');
 
 // Event Listeners
-window.addEventListener('load', setGame);
+// window.addEventListener('load', setGame);
 
 for (var i = 0; i < inputs.length; i++) {
   inputs[i].addEventListener('keyup', function() { moveToNextInput(event) });
